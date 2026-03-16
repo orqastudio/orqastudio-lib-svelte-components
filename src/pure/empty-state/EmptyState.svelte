@@ -1,14 +1,14 @@
 <script lang="ts">
-	import type { Component } from "svelte";
+	import { Icon } from "../icon/index.js";
 	import { Button } from "../button/index.js";
 
 	let {
-		icon: Icon,
+		icon,
 		title,
 		description,
 		action,
 	}: {
-		icon?: Component;
+		icon?: string;
 		title: string;
 		description?: string;
 		action?: { label: string; onclick: () => void };
@@ -16,8 +16,8 @@
 </script>
 
 <div class="flex flex-col items-center justify-center py-12 text-center">
-	{#if Icon}
-		<Icon class="mb-4 h-12 w-12 text-muted-foreground" />
+	{#if icon}
+		<div class="mb-4"><Icon name={icon} size="xl" /></div>
 	{/if}
 	<h3 class="text-lg font-semibold">{title}</h3>
 	{#if description}

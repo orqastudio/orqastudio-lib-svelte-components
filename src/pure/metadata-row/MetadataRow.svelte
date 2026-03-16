@@ -1,15 +1,15 @@
 <script lang="ts">
-	import type { Component } from "svelte";
+	import { Icon } from "../icon/index.js";
 	import { SmallBadge } from "../small-badge/index.js";
 	import type { BadgeVariant } from "../badge/index.js";
 
 	let {
-		icon: Icon,
+		icon,
 		label,
 		items,
 		badgeVariant = "secondary",
 	}: {
-		icon: Component;
+		icon: string;
 		label: string;
 		items: string[];
 		badgeVariant?: BadgeVariant;
@@ -19,7 +19,7 @@
 {#if items.length > 0}
 	<div class="flex flex-wrap items-center gap-1.5">
 		<span class="flex items-center gap-1 text-xs text-muted-foreground">
-			<Icon class="h-3.5 w-3.5" />
+			<Icon name={icon} size="sm" />
 			{label}
 		</span>
 		{#each items as item, i (i)}

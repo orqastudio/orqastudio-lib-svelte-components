@@ -6,7 +6,7 @@
   "types": "./dist/index.d.ts",
   "scripts": {
     "dev": "vite dev",
-    "build": "svelte-package -i src -o dist",
+    "build": "svelte-package -i src -o dist && find dist -name '*.stories.*' -delete",
     "check": "svelte-check --tsconfig ./tsconfig.json",
     "prepublishOnly": "npm run build",
     "storybook": "storybook dev -p 6006",
