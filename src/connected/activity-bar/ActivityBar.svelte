@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { Component, Snippet } from "svelte";
-	import * as Tooltip from "../../pure/tooltip/index.js";
+	import { Tooltip } from "../../pure/tooltip/index.js";
 	import { cn } from "../../utils/cn.js";
 	import { Separator } from "../../pure/separator/index.js";
 
@@ -27,25 +27,21 @@
 
 <div class="flex w-12 flex-col items-center border-r border-border bg-muted/30 py-2">
 	{#each topItems as item (item.key)}
-		<Tooltip.Root>
-			<Tooltip.Trigger>
-				{#snippet child({ props })}
-					<button
-						{...props}
-						class={cn(
-							"flex h-9 w-9 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground",
-							item.active && "bg-accent text-accent-foreground",
-						)}
-						onclick={item.onclick}
-					>
-						<item.icon class="h-4 w-4" />
-					</button>
-				{/snippet}
-			</Tooltip.Trigger>
-			<Tooltip.Content side="right">
-				<p>{item.label}</p>
-			</Tooltip.Content>
-		</Tooltip.Root>
+		<Tooltip side="right">
+			{#snippet trigger({ props })}
+				<button
+					{...props}
+					class={cn(
+						"flex h-9 w-9 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground",
+						item.active && "bg-accent text-accent-foreground",
+					)}
+					onclick={item.onclick}
+				>
+					<item.icon class="h-4 w-4" />
+				</button>
+			{/snippet}
+			<p>{item.label}</p>
+		</Tooltip>
 	{/each}
 
 	{#if extraTop}
@@ -61,24 +57,20 @@
 	{/if}
 
 	{#each bottomItems as item (item.key)}
-		<Tooltip.Root>
-			<Tooltip.Trigger>
-				{#snippet child({ props })}
-					<button
-						{...props}
-						class={cn(
-							"flex h-9 w-9 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground",
-							item.active && "bg-accent text-accent-foreground",
-						)}
-						onclick={item.onclick}
-					>
-						<item.icon class="h-4 w-4" />
-					</button>
-				{/snippet}
-			</Tooltip.Trigger>
-			<Tooltip.Content side="right">
-				<p>{item.label}</p>
-			</Tooltip.Content>
-		</Tooltip.Root>
+		<Tooltip side="right">
+			{#snippet trigger({ props })}
+				<button
+					{...props}
+					class={cn(
+						"flex h-9 w-9 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground",
+						item.active && "bg-accent text-accent-foreground",
+					)}
+					onclick={item.onclick}
+				>
+					<item.icon class="h-4 w-4" />
+				</button>
+			{/snippet}
+			<p>{item.label}</p>
+		</Tooltip>
 	{/each}
 </div>

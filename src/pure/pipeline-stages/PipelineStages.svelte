@@ -1,5 +1,5 @@
 <script lang="ts">
-	import * as Tooltip from "../tooltip/index.js";
+	import { TooltipRoot, TooltipTrigger, TooltipContent } from "../tooltip/index.js";
 	import type { Component } from "svelte";
 
 	export type PipelineStage = {
@@ -44,8 +44,8 @@
 <div class="flex items-stretch gap-1.5">
 	{#each stages as stage, i (stage.key)}
 		{#if stage.tooltipTitle}
-			<Tooltip.Root>
-				<Tooltip.Trigger>
+			<TooltipRoot>
+				<TooltipTrigger>
 					{#snippet child({ props })}
 						{#if onStageClick}
 							<button
@@ -64,17 +64,17 @@
 							</div>
 						{/if}
 					{/snippet}
-				</Tooltip.Trigger>
-				<Tooltip.Content side="bottom" class="max-w-[240px]">
+				</TooltipTrigger>
+				<TooltipContent side="bottom" class="max-w-[240px]">
 					<p class="text-xs font-medium">{stage.tooltipTitle}</p>
 					{#if stage.tooltipBody}
 						<p class="mt-1 text-xs text-muted-foreground">{stage.tooltipBody}</p>
 					{/if}
-				</Tooltip.Content>
-			</Tooltip.Root>
+				</TooltipContent>
+			</TooltipRoot>
 		{:else if onStageClick}
-			<Tooltip.Root>
-				<Tooltip.Trigger>
+			<TooltipRoot>
+				<TooltipTrigger>
 					{#snippet child({ props })}
 						<button
 							{...props}
@@ -84,11 +84,11 @@
 							{@render stageInner(stage)}
 						</button>
 					{/snippet}
-				</Tooltip.Trigger>
-				<Tooltip.Content side="bottom">
+				</TooltipTrigger>
+				<TooltipContent side="bottom">
 					<p class="text-xs">{stage.count} {stage.label.toLowerCase()}</p>
-				</Tooltip.Content>
-			</Tooltip.Root>
+				</TooltipContent>
+			</TooltipRoot>
 		{:else}
 			<div
 				class="flex w-[88px] shrink-0 flex-col items-center gap-1.5 rounded-lg border px-2 py-3 {stage.borderClass ?? 'border-border'} {stage.bgClass ?? 'bg-muted/30'}"

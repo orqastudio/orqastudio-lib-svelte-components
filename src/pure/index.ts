@@ -1,21 +1,25 @@
-// shadcn/UI primitives — namespaced to avoid collision (Root, Content, Trigger, etc.)
-export * as Button from "./button/index.js";
+// Single-export primitives
+export { Button, buttonVariants, type ButtonProps, type ButtonVariant, type ButtonSize } from "./button/index.js";
+export { Badge, badgeVariants, type BadgeVariant } from "./badge/index.js";
+export { Input } from "./input/index.js";
+export { Textarea } from "./textarea/index.js";
+export { Separator } from "./separator/index.js";
+export { ScrollArea } from "./scroll-area/index.js";
+
+// Composed single-exports (with parts available for edge cases)
+export { Tooltip, TooltipRoot, TooltipTrigger, TooltipContent, TooltipProvider, TooltipPortal } from "./tooltip/index.js";
+export { Popover, PopoverRoot, PopoverTrigger, PopoverContent, PopoverClose, PopoverPortal } from "./popover/index.js";
+export { Collapsible, CollapsibleRoot, CollapsibleTrigger, CollapsibleContent } from "./collapsible/index.js";
+
+// Composed primitives — namespaced (genuinely need different composition)
 export * as Card from "./card/index.js";
-export * as Badge from "./badge/index.js";
 export * as Dialog from "./dialog/index.js";
-export * as DropdownMenu from "./dropdown-menu/index.js";
-export * as Tooltip from "./tooltip/index.js";
-export * as Popover from "./popover/index.js";
-export * as Tabs from "./tabs/index.js";
-export * as Collapsible from "./collapsible/index.js";
-export * as ScrollArea from "./scroll-area/index.js";
-export * as Separator from "./separator/index.js";
-export * as Input from "./input/index.js";
-export * as Textarea from "./textarea/index.js";
 export * as AlertDialog from "./alert-dialog/index.js";
+export * as DropdownMenu from "./dropdown-menu/index.js";
+export * as Tabs from "./tabs/index.js";
 export * as Resizable from "./resizable/index.js";
 
-// Shared pure components — no naming conflicts
+// Shared pure components
 export { EmptyState } from "./empty-state/index.js";
 export { ErrorDisplay } from "./error-display/index.js";
 export { LoadingSpinner } from "./loading-spinner/index.js";

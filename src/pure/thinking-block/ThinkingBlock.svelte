@@ -2,7 +2,7 @@
 	import BrainIcon from "@lucide/svelte/icons/brain";
 	import ChevronRightIcon from "@lucide/svelte/icons/chevron-right";
 	import {
-		Collapsible,
+		CollapsibleRoot as Collapsible,
 		CollapsibleContent,
 		CollapsibleTrigger,
 	} from "../collapsible/index.js";
