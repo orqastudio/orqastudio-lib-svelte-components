@@ -19,6 +19,14 @@ export { DropdownMenu, type DropdownMenuProps, type DropdownMenuItemDef, type Dr
 export { Tabs, type TabsProps, type TabDef, TabsRoot, TabsList, TabsTrigger, TabsContent } from "./tabs/index.js";
 export { Resizable, type ResizableProps, ResizablePaneGroup, ResizableHandle, ResizablePane } from "./resizable/index.js";
 
+// Status + Icon (components + utilities)
+export { Status, resolveStatus, statusLabel, statusIconName, statusColor, statusColorClass, statusIsSpinning, STATUS_COLOR_CLASSES, DEFAULT_STATUSES, type StatusConfig } from "./status/index.js";
+export { Icon, resolveIcon, DEFAULT_ICON_MAP } from "./icon/index.js";
+
+// Data visualisation
+export { Sparkline, sparklinePath, trendPercent, formatTrend, trendArrow, trendColorClass } from "./sparkline/index.js";
+export { MetricCell } from "./metric-cell/index.js";
+
 // Shared pure components
 export { EmptyState } from "./empty-state/index.js";
 export { ErrorDisplay } from "./error-display/index.js";
@@ -31,11 +39,12 @@ export { PipelineStages } from "./pipeline-stages/index.js";
 export type { PipelineStage, PipelineEdge } from "./pipeline-stages/index.js";
 export { ThinkingBlock } from "./thinking-block/index.js";
 export { ConfirmDialog } from "./confirm-dialog/index.js";
-export { StatusBadge } from "./status-badge/index.js";
+export { Breadcrumb, type BreadcrumbItem } from "./breadcrumb/index.js";
 
 // Pattern abstractions
 export { FormCard } from "./form-card/index.js";
 export { ListCard } from "./list-card/index.js";
+export { DashboardCard } from "./dashboard-card/index.js";
 export { ProgressBar } from "./progress-bar/index.js";
 export { ViewContainer } from "./view-container/index.js";
 export { Toolbar } from "./toolbar/index.js";
